@@ -47,7 +47,21 @@ The objects created from this class can update themselves. This class updates it
  Another benefit is that you can listen the game events and trigger some network logic that allows you to comunicate with a backend. Also, this allows you to simulate a this backend calls without installing the full server.
  
   
+## Getting up and running
+
+1. Clone this repo from `https://github.com/WEREMSOFT/PixiJSSimpleGameWrapper.git`
+2. Run `npm install` from the root directory
+3. Run `gulp`
+4. Your browser will automatically be opened and directed to the browser-sync proxy address
+
+### Aditional Gulp Commands
+* gulp doc: generates JSDocumentation.
+* gulp lint: check for formatting errors.
+* gulp script: transpiles al JS files.
 
 
-
+ # TODO
+ * Add JSDoc for all files
+ * Enhance Main.js and core/app.js
+ * Create Network base code
  
