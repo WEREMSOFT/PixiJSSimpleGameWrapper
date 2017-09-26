@@ -1,0 +1,30 @@
+{
+  "name": "pixiJSSlotMachine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.18.5",
+    "browserify": "^14.4.0",
+    "browserify-shim": "^2.0.10",
+    "bulk-require": "^1.0.0",
+    "bulkify": "^1.4.2",
+    "eslint": "^3.12.2",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-jsdoc3": "^1.0.1",
+    "gulp-uglify": "^2.0.0",
+    "inherits": "^2.0.3",
+    "pixi-spine": "^1.5.5",
+    "pixi.js": "^4.5.5",
+    "stats.js": "^0.17.0",
+    "watch": "^1.0.1"
+  }
+}

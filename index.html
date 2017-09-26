@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+</head>
+<script src="node_modules/pixi.js/dist/pixi.min.js"></script>
+<body>
+<script type="text/javascript">
+    var type = "WebGL";
+    if(!PIXI.utils.isWebGLSupported()){
+        type = "canvas"
+    }
+
+    PIXI.utils.sayHello(type);
+
+    //Create the renderer
+    var renderer = PIXI.autoDetectRenderer(1280, 720);
+
+    //Add the canvas to the HTML document
+    document.body.appendChild(renderer.view);
+
+    //Create a container object called the `stage`
+    var stage = new PIXI.Container();
+
+
+
+
+    PIXI.loader
+        .add('assets/nova7sMain/Nova7sMain.json')
+        .add('assets/ReelMask.png')
+        .load(setup);
+
+    var sprite = [];
+    var sprite2 = null;
+    var animatedSprite = null;
+
+    function setup() {
+        var container = new PIXI.Container();
+
+        var backGround = new PIXI.Sprite(PIXI.loader.resources["assets/nova7sMain/Nova7sMain.json"].textures["GameBackground0.png"]);
+        stage.addChild(backGround);
+        var mask = new PIXI.Sprite(PIXI.loader.resources["assets/ReelMask.png"].texture);
+
+        container.addChild(mask);
+        for(let j = 0; j < 5; j++){
+            sprite[j] = [];
+            for(let i = 0; i < 5; i++){
+                sprite[j].push(new PIXI.Sprite(PIXI.loader.resources["assets/nova7sMain/Nova7sMain.json"].textures["Symbol_0" + (j + i + 1) + "_Blur.png"]));
+                sprite[j][i].y = sprite[j][i].height * i;
+                sprite[j][i].x = 227 + j * sprite[j][i].height;
+                //sprite[i].mask = mask;
+                container.addChild(sprite[j][i]);
+            }
+        }
+
+
+
+
+        var textureArray = [];
+
+        var i = 1;
+        var texture = PIXI.Texture.fromImage('Button_Main_Spin_Active_0' + i + '.png');
+        while(texture.valid) {
+            textureArray.push(texture);
+            i++;
+            var textNumber = i < 10 ? '0' + i : i;
+            texture = PIXI.Texture.fromImage('Button_Main_Spin_Active_' + textNumber + '.png');
+        }
+
+        stage.addChild(container);
+
+        animatedSprite = new PIXI.extras.AnimatedSprite(textureArray);
+        stage.addChild(animatedSprite);
+        animatedSprite.play();
+        container.mask = mask;
+        gameLoop();
+    }
+
+    function gameLoop() {
+        let speed = 20;
+        //Loop this function at 60 frames per second
+        requestAnimationFrame(gameLoop);
+        for(let j = 0; j < 5; j++) {
+            for (let i = 0; i < sprite[j].length; i++) {
+                sprite[j][i].y -= speed;
+                if (sprite[j][i].y < -sprite[j][i].height)
+                    sprite[j][i].y = sprite[j][i].height * (sprite[j].length - 1);
+            }
+        }
+        //Render the stage to see the animation
+        renderer.render(stage);
+    }
+
+</script>
+</body>
+</html>
