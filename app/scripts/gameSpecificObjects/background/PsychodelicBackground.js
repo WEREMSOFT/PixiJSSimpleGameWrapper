@@ -3,6 +3,7 @@
  */
 
 var GameObject = require('../../core/GameObject');
+var GameEvents = require('../events/GameEvents');
 var inherits = require('inherits');
 
 var PsychodelicBackground = function(pSprite){
@@ -28,6 +29,10 @@ var PsychodelicBackground = function(pSprite){
     this.outputSprite.y = global.app.renderer.height / 2;
     this.outputSprite.anchor.set(0.5);
     this.count = 0;
+
+    this.sprite.visible = false;
+
+    global.app.gameEventHandler.on(GameEvents.EVT_BUTON_SECONDARY_BUTTON_CLICK, this.onSpinButtonClicks, this);
 };
 
 inherits(PsychodelicBackground, GameObject);
@@ -54,6 +59,10 @@ PsychodelicBackground.prototype.update = function(){
     this.outputSprite.scale.set(1 + Math.sin(this.count) * 0.2);
 
     global.app.renderer.render(global.app.stage, this.renderTexture2, false);
+};
+
+PsychodelicBackground.prototype.onSpinButtonClicks = function(evt){
+    this.sprite.visible = !this.sprite.visible;
 };
 
 module.exports = PsychodelicBackground;

@@ -1,8 +1,8 @@
-**PIXI Game Boilerplate**
+# PIXI Game Boilerplate
  
  This is a boilerplate that helps to make games with pixiJS. 
  
- **Philosophy**
+ ## Philosophy
  
  The main idea is set a folder structure and a baseline to implement a game based on pixiejs using simple building blocks.
  
@@ -20,16 +20,17 @@ _"Keep it simple, stupid"_
 
 I have a lot of phrases stolen from the internet, but I' sure you get the idea.
 
-**The basic building block: The GameObject class**
+## The basic building block: The GameObject class
 
 The GameObject class is the main class. Over this, everything is constructed.
 
-**Childs :**
+##Childs
 The principal feature of this class is that it can have other gameObjects as childs(in the childs property, that is an array).
 
-**Update Method :** The objects created from this class can update themselves. This class updates itself and, by calling it superclass's update method, it updates it's childs by calling their update methods. If the property "enabled" is set to false, the gameobject will not update, also, their childs will not update even if they are enabled. This is used to handle complex hierarchies(like levels in a game or different stages or screens).
+##Update Method 
+The objects created from this class can update themselves. This class updates itself and, by calling it superclass's update method, it updates it's childs by calling their update methods. If the property "enabled" is set to false, the gameobject will not update, also, their childs will not update even if they are enabled. This is used to handle complex hierarchies(like levels in a game or different stages or screens).
  
-**Encapsulation and the update method**
+##Encapsulation and the update method
 
  Every GameObject must update itself using the update function. 
  If you want to implement a finite state machine, you can do it simply by adding a switch/case block or, if the logic is too complex, you can use a class that updates the GameObject.
@@ -37,7 +38,7 @@ The principal feature of this class is that it can have other gameObjects as chi
  There are some exceptions to this rule, like when you want to create a particle system, you should update the sprites with a loop, becuse is more eficient.
   
  
- **Messaging System**
+##Messaging System
  
  The messaging system is handled by the GameEventsHandler class. The single instance of this class can be accessed through global.app.gameEventHandler. This allows you to comunicate two objects that does not have a reference to each other. This is good for encapsulation(a button can be inside a folder without any dependence with other parts of the project and can be easily used in another project by simply copy the folder.
  

@@ -24,7 +24,7 @@ var WheelBox = function() {
         }
     }
     this.sprite.mask = mask;
-    this.speed = 35;
+    this.speed = 20;
     global.app.gameEventHandler.on(GameEvents.EVT_BUTON_SPIN_CLICK, this.onSpinButtonClick, this);
 };
 

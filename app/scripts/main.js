@@ -12,7 +12,7 @@ var Stats = require('stats.js');
 var Dragon = require('./gameSpecificObjects/characters/Dragon');
 var Coin = require('./gameSpecificObjects/characters/Coin');
 var Penguin = require('./gameSpecificObjects/characters/Penguin');
-var SpinButon = require('./gameSpecificObjects/ui/SpinButton');
+var Button = require('./core/ui/Button');
 var GameEvents = require('./gameSpecificObjects/events/GameEvents');
 var PsychodelicBackground = require('./gameSpecificObjects/background/PsychodelicBackground');
 
@@ -30,8 +30,10 @@ global.stats.domElement.style.top = "0px";
 function resourcesReady() {
     var animatedSprite = null;
 
+    var backGround = new MovingBackground();
+    global.app.addChild(backGround);
 
-    var backGround = new PsychodelicBackground();
+    backGround = new PsychodelicBackground();
     global.app.addChild(backGround);
 
     var pg = new Dragon();
@@ -70,11 +72,28 @@ function resourcesReady() {
     //     }
     // }
 
-    var spinButton = new SpinButon();
+
+    var spinButton = new Button(
+        global.app.PIXI.loader.resources["assets/button/button.png"].texture,
+        global.app.PIXI.loader.resources["assets/button/buttonDown.png"].texture,
+        global.app.PIXI.loader.resources["assets/button/buttonOver.png"].texture,
+        GameEvents.EVT_BUTON_SPIN_CLICK
+    );
     spinButton.x = 900;
     spinButton.y = 650;
     global.app.gameEventHandler.on(GameEvents.EVT_BUTON_SPIN_CLICK, onSpinButtonClick, this);
     global.app.addChild(spinButton);
+
+    var secondaryButton = new Button(
+        global.app.PIXI.loader.resources["assets/button/button.png"].texture,
+        global.app.PIXI.loader.resources["assets/button/buttonDown.png"].texture,
+        global.app.PIXI.loader.resources["assets/button/buttonOver.png"].texture,
+        GameEvents.EVT_BUTON_SECONDARY_BUTTON_CLICK
+    );
+    secondaryButton.x = 500;
+    secondaryButton.y = 650;
+    global.app.addChild(secondaryButton);
+
 
     global.app.startUpdate();
 
