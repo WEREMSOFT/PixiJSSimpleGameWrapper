@@ -15,6 +15,8 @@ var Penguin = require('./gameSpecificObjects/characters/Penguin');
 var Button = require('./core/ui/Button');
 var GameEvents = require('./gameSpecificObjects/events/GameEvents');
 var PsychodelicBackground = require('./gameSpecificObjects/background/PsychodelicBackground');
+var BitmapFontTest = require('./gameSpecificObjects/bitmapText/BitmapFontTest');
+var TextTween = require('./gameSpecificObjects/characters/TextTween');
 
 global.app = new App();
 
@@ -36,6 +38,11 @@ function resourcesReady() {
     backGround = new PsychodelicBackground();
     global.app.addChild(backGround);
 
+
+    var wheelBox = new WheelBox();
+
+    global.app.addChild(wheelBox);
+
     var pg = new Dragon();
     pg.angle = -10;
 
@@ -54,23 +61,24 @@ function resourcesReady() {
 
     global.app.addChild(pg);
 
-    var wheelBox = new WheelBox();
-
-    global.app.addChild(wheelBox);
 
 
-    //var squareWidth = new Dragon().width;
 
+    var squareWidth = new Dragon().width;
 
 
     // for(var j = 0; j < 20; j++) {
     //     for (var i = 0; i < 30; i++) {
-    //         var dragon = /*( i + j ) % 2 == 0?new Dragon():*/ new Penguin();
+    //         var dragon = new Dragon();// new Penguin();
     //         dragon.sprite.y = squareWidth  * j;
     //         dragon.sprite.x = squareWidth  * i;
     //         global.app.addChild(dragon);
     //     }
-    // }
+    //}
+
+    var textTween = new TextTween();
+
+    global.app.addChild(textTween);
 
 
     var spinButton = new Button(
@@ -94,6 +102,13 @@ function resourcesReady() {
     secondaryButton.y = 650;
     global.app.addChild(secondaryButton);
 
+    var bft = new BitmapFontTest();
+
+    bft.x = global.app.renderer.width / 2;
+    bft.y = global.app.renderer.height / 2;
+
+
+    //global.app.addChild(bft);
 
     global.app.startUpdate();
 

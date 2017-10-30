@@ -5,6 +5,10 @@
 var EventEmitter = require('eventemitter3');
 var inherits = require('inherits');
 
+/**
+ * Is the message handler for the whole game.
+ * @constructor
+ */
 var GameEventsHandler = function(){
   EventEmitter.call(this);
 };

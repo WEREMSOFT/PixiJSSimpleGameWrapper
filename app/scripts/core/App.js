@@ -37,6 +37,7 @@ App.prototype.gameEventHandler = null;
 App.prototype.startUpdate = function(){
     requestAnimationFrame(systemUpdate);
 };
+
 App.prototype.update = function(){
     GameObject.prototype.update.apply(this);
     global.app.renderer.render(global.app.stage);

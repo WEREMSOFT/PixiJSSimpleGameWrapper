@@ -18,12 +18,14 @@ ResourceLoader = function (pPIXI, onResourcesLoadedCallback) {
         .add('assets/spinObjects/spinObj_05.png')
         .add('assets/spinObjects/spinObj_06.png')
         .add('assets/spinObjects/spinObj_07.png')
-
+        .add('desyrel', 'assets/bitmapFont/desyrel.xml')
         .add('assets/button/button.png')
         .add('assets/button/buttonDown.png')
         .add('assets/button/buttonOver.png')
 
         .add('dragon', 'assets/dragon/dragon.json')
+        .add('dragonBones', 'assets/dragonBones/newDragon.json')
+        .add('textTween', 'assets/textTween/TextTween.json')
         .add('coin', 'assets/coin/coin-pro.json')
         .add('pinguin', 'assets/pinguin/skeleton.json')
         .load(onResourcesLoadedCallback);
