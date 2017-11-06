@@ -7,7 +7,6 @@ var MovingBackground = require('../background/MovingBackground');
 
 ResourceLoader = function (pPIXI, onResourcesLoadedCallback) {
     pPIXI.loader
-        .add('assets/nova7sMain/Nova7sMain.json')
         .add('assets/ReelMask.png')
         .add('assets/GameBackground0.jpg')
         .add('assets/spinObjects/spinObj_00.png')
