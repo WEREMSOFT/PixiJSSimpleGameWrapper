@@ -15,10 +15,8 @@ var TextTween = function(){
 
     dragonSpine.state.addListener({
         event: function(entry, event) {
-            console.log('event fired '+event.data+' at track' + entry.trackIndex)
-        },
-        complete: function(entry) { console.log('track '+entry.trackIndex+' completed '+entry.loopsCount()+' times')
-        },
+            console.log('event fired '+event.data+' at track' + entry.trackIndex) },
+        complete: function(entry) { console.log('track '+entry.trackIndex+' completed '+entry.loopsCount()+' times') },
         start: function(entry) { console.log('animation is set at '+entry.trackIndex) },
         end: function(entry) { console.log('animation was ended at '+entry.trackIndex) },
 

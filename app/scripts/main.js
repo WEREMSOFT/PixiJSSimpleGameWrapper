@@ -64,17 +64,17 @@ function resourcesReady() {
 
 
 
-    var squareWidth = new Dragon().width;
+    var squareWidth = 50;
 
 
-    // for(var j = 0; j < 20; j++) {
-    //     for (var i = 0; i < 30; i++) {
-    //         var dragon = new Dragon();// new Penguin();
-    //         dragon.sprite.y = squareWidth  * j;
-    //         dragon.sprite.x = squareWidth  * i;
-    //         global.app.addChild(dragon);
-    //     }
-    //}
+    for(var j = 0; j < 10; j++) {
+        for (var i = 0; i < 10; i++) {
+            var dragon = new Dragon();// new Penguin();
+            dragon.sprite.y = squareWidth  * j;
+            dragon.sprite.x = squareWidth  * i;
+            global.app.addChild(dragon);
+        }
+    }
 
     var textTween = new TextTween();
 

@@ -18,11 +18,11 @@ var DragonBones = function(){
     global.app.gameEventHandler.on(GameEvents.EVT_BUTON_SPIN_CLICK, this.onSpinButtonClicks, this);
 
 };
-inherits(Dragon, GameObject);
+inherits(DragonBones, GameObject);
 
 DragonBones.prototype.onSpinButtonClicks = function(evt){
     console.log('dragon flip!!');
   this.scaleX *= -1;
 };
 
-module.exports = DragonBones;
+module.exports = Dragon;
